@@ -11,9 +11,15 @@
   <p><%= comment.body %></p>
 <% end %>
 
-<%= form_for([@article, @article.comments.build]) do |form| %>
+<% if user_signed_in? %>
+
+  <%= form_for([@article, @article.comments.build]) do |form| %>
   <div class="mb-3">
     <%= form.text_area :body, :class => 'form-control', :placeholder => 'Ваш комментарий' %>
   </div>
   <%= form.submit 'Добавить' %>
+  <% end %>
+ <% else %>
+  <p>Авторизируйтесь, чтобы оставлять комментарии</p>
+
 <% end %>
