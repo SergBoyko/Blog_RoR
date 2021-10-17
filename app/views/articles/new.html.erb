@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h2>Напишите вашу статью</h2>
+
+<%= form_for :article, url: '/articles' do |form| %>
+  <p>
+  <div class="mb-3">
+
+   <%= form.text_field :title, :class => 'form-control', :placeholder => 'Название статьи'%>
+  </div>
+  </p>
+  <p>
+  <div class="mb-3">
+
+    <%= form.text_area :text, :class => 'form-control',:style => "height: 300px", :placeholder => 'Ваша статья'%>
+  </div>
+  </p>
+
+  <%= form.submit 'Опубликовать', :class => 'btn btn-dark btn-lg'%>
+
+
+<% end %>
+</div>

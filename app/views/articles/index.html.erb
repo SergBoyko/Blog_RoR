@@ -1,0 +1,27 @@
+
+<div class="container">
+<% @articles.each do |article| %>
+  <h2><%= article.title %></h2>
+    <p class="text-muted"><%= article.author %> - <%= article.created_at.strftime("%d.%m.%Y %H:%M:%S")%> </p>
+
+  <p><%= article.text %></p>
+  <p>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <%= button_to "Показать", article_path(article), :class => "btn btn-outline-dark", :method => :get %>
+
+      <% if @user == article.author %>
+      <%= button_to "Редактировать", edit_article_path(article) , :class => "btn btn-outline-dark", :method => :get %>
+      <%= button_to "Удалить", article_path(article), :class => "btn btn-outline-dark", method: :delete, data: {confirm: 'Вы уверены, что хотите удалить?'} %>
+      <%end%>
+
+        </div>
+  </p>
+
+
+  <hr>
+
+<% end %>
+
+
+
+</div>

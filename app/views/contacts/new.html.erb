@@ -1,0 +1,27 @@
+<h1>Напишите нам!</h1>
+
+<% if @contact && @contact.errors.any? %>
+
+  <p>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </p>
+
+<% end %>
+
+<%= form_for :contact, url: '/contacts' do |form| %>
+  <div class="mb-3">
+    <%= form.label 'Email адрес', :class => 'form-label' %>
+    <%= form.text_field :email ,:type => 'email', :class => 'form-control', :placeholder => 'name@example.com'  %>
+  </div>
+  <div class="mb-3">
+    <%= form.label 'Сообщение',:class => 'form-label'%>
+    <%= form.text_area :message,:class => 'form-control', :rows =>'3', :placeholder => 'Текст сообщения' %>
+  </div>
+  <%= form.submit 'Отправить письмо', :class => 'btn btn-dark btn-lg' %>
+
+
+<% end %>
