@@ -10,6 +10,12 @@ describe Article do
     it { should have_many :comments }
   end
 
+  describe 'validations of length' do
+    it { should validate_length_of(:title).is_at_most(140) }
+    it { should validate_length_of(:text).is_at_most(4000) }
+
+  end
+
   describe "#subject" do
     it 'returns the article title' do
       # создаем обьект article
