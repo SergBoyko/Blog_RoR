@@ -4,8 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem "factory_bot_rails"
 
 end
+
 
 ruby '2.7.4'
 
