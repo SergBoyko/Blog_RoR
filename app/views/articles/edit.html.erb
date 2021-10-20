@@ -2,12 +2,12 @@
 <h1>Редактировать статью</h1>
 <%= form_for :article, url: article_path(@article), method: :put do |form| %>
 <div class="mb-3">
-    <%= form.label 'Заголовок', :class => 'form-label' %>
+    <%= form.label :title, 'Заголовок', :class => 'form-label' %>
     <%= form.text_field :title, :class => 'form-control' %>
 </div>
   </p>
   <p>
-    <%= form.label 'Текст', :class => 'form-label'%>
+    <%= form.label :text, :class => 'form-label'%>
     <%= form.text_area :text, :class => 'form-control', :style => "height: 300px" %>
   </p>
   <%= form.submit 'Изменить', :class => 'btn btn-lg btn-dark' %>
